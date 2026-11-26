@@ -1,3 +1,4 @@
+import { parentPolicyRouter, deviceRouter } from './modules/policy/policy.routes.js';
 import pairingRoutes from './modules/pairing/pairing.routes.js';
 import authRoutes from './modules/auth/auth.routes.js';
 import 'dotenv/config';
@@ -20,6 +21,11 @@ app.use('/api/v1/auth', authRoutes);
 
 // Mount pairing routes
 app.use('/api/v1/devices', pairingRoutes);
+
+// Mount policy routes
+app.use('/api/v1/devices', parentPolicyRouter);
+// Mount device routes
+app.use('/api/v1/device', deviceRouter);
 
 
 // 404 handler
